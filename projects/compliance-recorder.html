@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Compliance Recording Launcher &amp; Tape On Air Service &mdash; Kenneth Robert Basilio</title>
+<meta name="description" content="Unattended SDI compliance capture across four channels, with per-channel auto-restart and visible status so a failed recorder never becomes a silent gap in the record." />
+<meta name="referrer" content="no-referrer" />
+
+<meta property="og:title" content="Compliance Recording Launcher & Tape On Air Service" />
+<meta property="og:description" content="Unattended SDI compliance capture across four channels, with per-channel auto-restart and visible status so a failed recorder never becomes a silent gap in the record." />
+<meta property="og:type" content="article" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/css/project.css" />
+</head>
+<body>
+
+<header class="rail">
+  <div class="rail-in">
+    <a class="back" href="../index.html#log">&#9664; Engineering Log</a>
+    <span class="rail-id">
+      <span class="k">Project</span>
+      <span class="v">COMPLIANCE RECORDER</span>
+    </span>
+    <!-- PARAM: PROJECT_STATUS — see PARAMETERS.md -->
+    <span class="rail-stat">Status <b>In production</b></span>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="phead">
+      <span class="kind">TOC Tool and Web App</span>
+      <h1>Compliance Recording Launcher and<br />Tape On Air Web Access</h1>
+      <p class="lede">Compliance recording only has value if it is continuous. A capture that dies quietly at two in the morning is discovered when someone needs the material and finds a hole. This launcher starts all configured SDI channels, watches them, and restarts anything that stops. Recorded files are served over corporate user log-in web application. Trimming, merging and export with watermark and logging available.</p>
+      <!-- PARAM: PROJECT_SPEC — see PARAMETERS.md — EDIT: confirm figures -->
+      <div class="spec">
+        <span><b>Role</b>Sole developer</span>
+        <span><b>Built</b>March 2026</span>
+        <span><b>Channels</b>SDI</span>
+        <span><b>Deployment</b>On-premise</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="monitor">
+      <div class="screen">
+        <!-- PARAM: PROJECT_MEDIA — see PARAMETERS.md -->
+        <video controls playsinline preload="none" poster="media/compliance-recorder/demo-poster.jpg">
+          <source src="media/compliance-recorder/demo.mp4" type="video/mp4" />
+          Your browser cannot play this video. <a href="media/compliance-recorder/demo.mp4">Download the demo</a> instead.
+        </video>
+        <img hidden alt="" />
+      </div>
+      <div class="bar">
+        <span class="src">Demo &mdash; walkthrough</span>
+        <span class="tally"><i></i>On air</span>
+      </div>
+
+      <div class="strip">
+        <a class="thumb" href="media/compliance-recorder/demo.mp4"
+           data-type="video" data-poster="media/compliance-recorder/demo-poster.jpg" data-label="Demo - TOA Preview Over Web" aria-current="true">
+          <span class="play">&#9658; VIDEO</span>
+          <img src="media/compliance-recorder/demo-poster.jpg" alt="" loading="lazy" />
+          <span class="cap">Demo - TOA Preview Over Web</span>
+        </a>
+        <a class="thumb" href="media/compliance-recorder/demo2.mp4"
+           data-type="video" data-poster="media/compliance-recorder/demo-poster2.jpg" data-label="Demo - 4 Channel Backend Recording" aria-current="true">
+          <span class="play">&#9658; VIDEO</span>
+          <img src="media/compliance-recorder/demo-poster2.jpg" alt="" loading="lazy" />
+          <span class="cap">Demo - 4 Channel Backend Recording</span>
+        </a>
+        <a class="thumb" href="media/compliance-recorder/shot-01.png"
+           data-type="image" data-label="Recorder Configurator">
+          <img src="media/compliance-recorder/shot-01.png" alt="" loading="lazy" />
+          <span class="cap">Recorder Configurator</span>
+        </a>
+        <a class="thumb" href="media/compliance-recorder/shot-02.png"
+           data-type="image" data-label="4 Channel Recording">
+          <img src="media/compliance-recorder/shot-02.png" alt="" loading="lazy" />
+          <span class="cap">4 Channel Recording</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="body-grid">
+      <div class="prose">
+
+        <section>
+          <h2>The problem</h2>
+          <p>TOC SDI feeds needed continuous capture. Nobody was watching at the moment of failure, so the gap was found later, by someone who needed exactly that material.</p>
+          <p>Airing discrepancies cannot be validated due to lack of on-air recording.</p>
+        </section>
+
+        <section>
+          <h2>The build</h2>
+          <p>A launcher sits over four FFmpeg capture processes reading from the SDI inputs, and makes their state visible in one place.</p>
+          <ul><li>Per-channel start and stop, with all four manageable from a single screen</li><li>Overlay text to properly label timestamp and channel being recorded.</li><li>Live preview per channel.</li><li>Segmented output files, keeping any single failure contained to one segment</li><li>All parameters configurable with auto purging to prevent local storage from running out of space.</li></ul>
+        </section>
+
+        <section>
+          <h2>The outcome</h2>
+          <!-- EDIT: replace with your real figures before publishing. -->
+          <p>Compliance recording met using available resources and without needing to purchase enterprise level solution that does the same, effectively saving millions. On-air discrepancies that aired are now logged and outages are measured accurately, and disputes over material airing and proof of airing can now be easily accessed by authorized personnels.</p>
+        </section>
+
+      </div>
+
+      <aside class="side">
+        <div class="panel">
+          <h3>Stack</h3>
+          <div class="chips">
+            <span class="chip">FFmpeg</span>
+            <span class="chip">DeckLink SDI</span>
+            <span class="chip">Windows</span>
+            <span class="chip">Claude AI</span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>At a glance</h3>
+          <div class="kv">
+            <div><span class="k">Category</span><span class="v">Compliance</span></div>
+            <div><span class="k">Channels</span><span class="v">SDI</span></div>
+            <div><span class="k">Recovery</span><span class="v">Auto-restart</span></div>
+            <div><span class="k">Runs on</span><span class="v">Windows</span></div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>Impact</h3>
+          <!-- EDIT: replace both metrics with your real numbers. -->
+          <div class="metric">
+            <div class="n">Compliance</div>
+            <div class="l">Continuous SDI capture, unattended, self managing.</div>
+          </div>
+          <div class="metric">
+            <div class="n">Self-purging</div>
+            <div class="l">Deletes old files set on a retention period configured by the user. Deploy and forget.</div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- PARAM: PROJECT_PAGER — see PARAMETERS.md -->
+    <nav class="pager" aria-label="Project navigation">
+      <a class="pg" href="media-converter.html">&#9664; TOC Media Converter</a>
+      <a class="pg" href="teams-chatbot.html">Playlist Live Service &#9654;</a>
+    </nav>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <span>&copy; <span id="yr"></span> KENNETH ROBERT BASILIO &middot; ALL SIGNALS NOMINAL</span>
+    <span class="rt">BUILT WITH VANILLA HTML / CSS / JS &middot; NO TRACKERS</span>
+  </div>
+</footer>
+
+<div class="lb" hidden>
+  <button class="lb-close" type="button">CLOSE &times;</button>
+  <img alt="" />
+</div>
+
+<script src="../assets/js/project.js"></script>
+</body>
+</html>

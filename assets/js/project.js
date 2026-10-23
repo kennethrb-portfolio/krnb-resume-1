@@ -1,0 +1,139 @@
+/* =========================================================
+   project.js — shared behaviour for projects/*.html and
+   certificates.html
+
+   Progressive enhancement: with JS disabled, thumbnails are
+   ordinary links to the full-size media and every page still
+   reads top to bottom.
+
+   No innerHTML is used anywhere. All media paths come from
+   the page's own markup, never from user input or the URL.
+   ========================================================= */
+(function () {
+  "use strict";
+
+  /* ---------------------------------------------------------
+     LIGHTBOX — used by project pages and certificates.html
+     --------------------------------------------------------- */
+  var lb      = document.querySelector(".lb");
+  var lbImg   = lb && lb.querySelector("img");
+  var lbClose = lb && lb.querySelector(".lb-close");
+  var lastFocus = null;
+
+  function openLb(src, alt) {
+    if (!lb || !lbImg || !src) return;
+    lastFocus = document.activeElement;
+    lbImg.setAttribute("src", src);
+    lbImg.setAttribute("alt", alt || "");
+    lb.hidden = false;
+    if (lbClose) lbClose.focus();
+  }
+  function closeLb() {
+    if (!lb) return;
+    lb.hidden = true;
+    lbImg.removeAttribute("src");
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  if (lbClose) lbClose.addEventListener("click", closeLb);
+  if (lb) {
+    lb.addEventListener("click", function (ev) {
+      if (ev.target === lb) closeLb();
+    });
+  }
+  document.addEventListener("keydown", function (ev) {
+    if (ev.key === "Escape" && lb && !lb.hidden) closeLb();
+  });
+
+  /* Any image marked .zoom opens in the lightbox.
+     Certificate scans use this; project pages use the
+     monitor viewport below. */
+  Array.prototype.forEach.call(document.querySelectorAll("img.zoom"), function (img) {
+    img.addEventListener("click", function () {
+      openLb(img.getAttribute("data-full") || img.getAttribute("src"),
+             img.getAttribute("alt"));
+    });
+  });
+
+  /* ---------------------------------------------------------
+     PREVIEW MONITOR — project pages only
+     --------------------------------------------------------- */
+  var screenEl = document.querySelector(".screen");
+  var stripEl  = document.querySelector(".strip");
+
+  if (screenEl && stripEl) {
+    var videoEl = screenEl.querySelector("video");
+    var srcTag  = videoEl && videoEl.querySelector("source");
+    var imgEl   = screenEl.querySelector("img");
+    var srcName = document.querySelector(".bar .src");
+    var thumbs  = Array.prototype.slice.call(stripEl.querySelectorAll(".thumb"));
+
+    var select = function (thumb) {
+      var isVideo = thumb.getAttribute("data-type") === "video";
+      var label   = thumb.getAttribute("data-label") || "";
+      var full    = thumb.getAttribute("href") || "";
+
+      thumbs.forEach(function (t) {
+        t.setAttribute("aria-current", t === thumb ? "true" : "false");
+      });
+      if (srcName) srcName.textContent = label;
+
+      if (isVideo) {
+        if (imgEl) imgEl.hidden = true;
+        if (videoEl && srcTag) {
+          /* Swap the source only when it actually changes, so
+             re-selecting the current clip doesn't restart it. */
+          if (srcTag.getAttribute("src") !== full) {
+            videoEl.pause();
+            screenEl.classList.remove("live");
+            srcTag.setAttribute("src", full);
+            var poster = thumb.getAttribute("data-poster");
+            if (poster) videoEl.setAttribute("poster", poster);
+            videoEl.load();
+          }
+          videoEl.hidden = false;
+          var playing = videoEl.play();
+          if (playing && playing.catch) {
+            playing.catch(function () { /* autoplay may be blocked; controls remain */ });
+          }
+        }
+      } else {
+        if (videoEl) {
+          videoEl.pause();
+          videoEl.hidden = true;
+        }
+        if (imgEl) {
+          imgEl.hidden = false;
+          imgEl.setAttribute("src", full);
+          imgEl.setAttribute("alt", label);
+        }
+        screenEl.classList.remove("live");
+      }
+    };
+
+    thumbs.forEach(function (thumb) {
+      thumb.addEventListener("click", function (ev) {
+        ev.preventDefault();
+        select(thumb);
+      });
+    });
+
+    if (videoEl) {
+      videoEl.addEventListener("play",  function () { screenEl.classList.add("live"); });
+      videoEl.addEventListener("pause", function () { screenEl.classList.remove("live"); });
+      videoEl.addEventListener("ended", function () { screenEl.classList.remove("live"); });
+    }
+
+    if (imgEl) {
+      imgEl.addEventListener("click", function () {
+        if (!imgEl.hidden) openLb(imgEl.getAttribute("src"), imgEl.getAttribute("alt"));
+      });
+    }
+  }
+
+  /* ---------------------------------------------------------
+     FOOTER YEAR — every page
+     --------------------------------------------------------- */
+  var yr = document.getElementById("yr");
+  if (yr) yr.textContent = new Date().getFullYear();
+})();

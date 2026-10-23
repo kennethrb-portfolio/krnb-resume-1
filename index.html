@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kenneth Robert Nouay Basilio — Broadcast Systems, MCR, Media &amp; Automation Engineer</title>
+<meta name="description" content="Kenneth Robert Nouay Basilio — Broadcast Systems, MCR, Media, and Automation Engineer. 16 years in master control room operations, system support and broadcast IT, supporting 31 channels across TV, radio, streaming, cloud and OTT." />
+<meta name="referrer" content="no-referrer" />
+
+<!-- PARAM: SITE_URL — see PARAMETERS.md -->
+<link rel="canonical" href="https://kennethrb-portfolio.github.io/krnb-resume/" />
+<meta property="og:title" content="Kenneth Robert Nouay Basilio — Broadcast Systems, MCR, Media &amp; Automation Engineer" />
+<meta property="og:description" content="MCR operations, system support and broadcast IT — 31 channels across TV, radio, streaming, cloud and OTT." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://kennethrb-portfolio.github.io/krnb-resume/" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/signal-chain.css" />
+
+<style>
+  :root{
+    --void:#0B0E14;
+    --panel:#141922;
+    --panel-2:#1B2230;
+    --line:#232B38;
+    --line-soft:#2E384A;
+    --ink:#E6EAF0;
+    --ink-dim:#8B96A8;
+    --ink-faint:#5A667A;
+    --tally:#FF3B30;
+    --signal:#4FE3A6;
+    --amber:#FFB020;
+    --cyan:#38BDF8;
+    --r:6px;
+    --maxw:1160px;
+    --disp:'Bahnschrift','DIN Alternate','Barlow Semi Condensed',system-ui,sans-serif;
+    --body:'IBM Plex Sans',system-ui,sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,monospace;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--body);
+    background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(56,189,248,.06), transparent 60%),
+      radial-gradient(900px 500px at 0% 10%, rgba(79,227,166,.05), transparent 55%),
+      var(--void);
+    color:var(--ink);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:var(--cyan);text-decoration:none}
+  a:hover{text-decoration:underline}
+  :focus-visible{outline:2px solid var(--signal);outline-offset:2px}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-faint)}
+  .label{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--signal)}
+
+  /* ---------- STATUS RAIL ---------- */
+  .rail{position:sticky;top:0;z-index:50;background:rgba(11,14,20,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .rail-in{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:16px;padding:9px clamp(16px,4vw,40px)}
+  .chan{display:flex;align-items:center;gap:12px;min-width:0}
+  .chan-id{display:flex;flex-direction:column;line-height:1.15;min-width:0}
+  .chan-id .k{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint)}
+  .chan-id .v{font-family:var(--disp);font-weight:700;font-size:15px;letter-spacing:.03em;color:var(--signal);white-space:nowrap}
+  .rail-nav{display:flex;gap:2px;margin-left:auto}
+  .rail-nav a{font-family:var(--body);font-size:13.5px;font-weight:500;letter-spacing:0;color:var(--ink-dim);padding:6px 10px;border-radius:4px}
+  .rail-nav a:hover{color:var(--ink);background:var(--panel);text-decoration:none}
+  .tc{font-family:var(--mono);font-size:13px;font-weight:500;color:var(--amber);white-space:nowrap;letter-spacing:.04em;padding:5px 9px;border:1px solid var(--line);border-radius:4px;background:var(--panel);margin-left:auto}
+  .rail-nav ~ .tc{margin-left:0}
+  .onair{display:inline-flex;align-items:center;gap:7px;font-family:var(--disp);font-weight:700;font-size:12px;letter-spacing:.14em;color:var(--tally);padding:5px 10px;border:1px solid rgba(255,59,48,.4);border-radius:4px;background:rgba(255,59,48,.08);white-space:nowrap}
+  .onair .dot{width:8px;height:8px;border-radius:50%;background:var(--tally);box-shadow:0 0 0 0 rgba(255,59,48,.6);animation:pulse 2s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,59,48,.55)}70%{box-shadow:0 0 0 7px rgba(255,59,48,0)}100%{box-shadow:0 0 0 0 rgba(255,59,48,0)}}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:clamp(24px,4vw,48px) 0 clamp(36px,6vw,64px)}
+  .hero-grid{display:grid;grid-template-columns:1.35fr .9fr;gap:clamp(28px,5vw,64px);align-items:center}
+  .src-tag{display:inline-flex;align-items:center;gap:8px;margin-bottom:22px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--signal);border:1px solid var(--line);border-radius:100px;padding:5px 12px;background:var(--panel)}
+  .src-tag .sq{width:7px;height:7px;background:var(--signal);border-radius:1px}
+  h1{font-family:var(--disp);font-weight:700;font-size:clamp(38px,6.4vw,74px);line-height:.98;letter-spacing:-.01em;margin-bottom:18px}
+  h1 .sub{display:block;color:var(--ink-dim);font-weight:500;font-size:clamp(15px,2.2vw,22px);letter-spacing:.02em;margin-top:14px}
+  .lede{color:var(--ink-dim);font-size:clamp(15px,1.5vw,17px);max-width:54ch;margin-bottom:26px}
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px}
+  .cta{font-family:var(--mono);font-size:13px;letter-spacing:.04em;padding:11px 18px;border-radius:var(--r);cursor:pointer;border:1px solid transparent;display:inline-block}
+  .cta.primary{background:var(--signal);color:#05130D;font-weight:600}
+  .cta.primary:hover{filter:brightness(1.08);text-decoration:none}
+  .cta.ghost{border-color:var(--line-soft);color:var(--ink);background:transparent}
+  .cta.ghost:hover{border-color:var(--signal);color:var(--signal);text-decoration:none}
+
+  .tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+  .tile{border:1px solid var(--line);border-radius:var(--r);background:linear-gradient(180deg,var(--panel-2),var(--panel));padding:16px;position:relative;overflow:hidden}
+  .tile::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--signal),transparent)}
+  .tile .num{font-family:var(--disp);font-weight:700;font-size:30px;line-height:1;color:var(--ink)}
+  .tile .num small{font-size:15px;color:var(--signal);margin-left:2px}
+  .tile .cap{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin-top:8px}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:clamp(44px,7vw,86px) 0;border-top:1px solid var(--line)}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:34px;flex-wrap:wrap}
+  .sec-head .idx{font-family:var(--mono);font-size:12px;color:var(--signal);letter-spacing:.1em}
+  .sec-head h2{font-family:var(--disp);font-weight:700;font-size:clamp(22px,3.2vw,34px);letter-spacing:-.01em}
+  .sec-head .meta{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--ink-faint);letter-spacing:.08em}
+
+  /* ---------- SKILLS ---------- */
+  .skill-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  .skill-card{border:1px solid var(--line);border-radius:var(--r);background:var(--panel);padding:20px}
+  .skill-card h3{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal);margin-bottom:14px;display:flex;align-items:center;gap:9px}
+  .skill-card h3::before{content:"";width:6px;height:6px;background:var(--signal);border-radius:1px;box-shadow:0 0 8px var(--signal)}
+  .chips{display:flex;flex-wrap:wrap;gap:7px}
+  .chip{font-family:var(--mono);font-size:12px;color:var(--ink-dim);border:1px solid var(--line-soft);border-radius:4px;padding:5px 9px;background:var(--panel-2)}
+  .chip:hover{color:var(--ink);border-color:var(--signal)}
+
+  /* ---------- RUNDOWN ---------- */
+  .rundown{border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+  .seg{border-bottom:1px solid var(--line);background:var(--panel)}
+  .seg:last-child{border-bottom:none}
+  .seg-head{width:100%;text-align:left;cursor:pointer;background:none;border:none;color:inherit;display:grid;grid-template-columns:150px 1fr auto;gap:16px;align-items:center;padding:18px 20px;font-family:inherit}
+  .seg-head:hover{background:var(--panel-2)}
+  .seg-yr{font-family:var(--mono);font-size:12px;color:var(--amber);letter-spacing:.03em;white-space:nowrap}
+  .seg-title{min-width:0}
+  .seg-title .role{font-family:var(--disp);font-weight:600;font-size:clamp(16px,2vw,20px);color:var(--ink);display:block}
+  .seg-title .org{font-family:var(--mono);font-size:12px;color:var(--ink-dim);margin-top:4px;padding-left:18px;display:block}
+  .seg-badge{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:4px 8px;border-radius:3px;white-space:nowrap}
+  .seg-badge.live{color:var(--tally);border:1px solid rgba(255,59,48,.4);background:rgba(255,59,48,.08)}
+  .seg-badge.arch{color:var(--ink-faint);border:1px solid var(--line-soft)}
+  .seg-caret{font-family:var(--mono);color:var(--ink-faint);transition:transform .25s;font-size:13px}
+  .seg[aria-expanded="true"] .seg-caret{transform:rotate(90deg);color:var(--signal)}
+  .seg-body{max-height:0;overflow:hidden;transition:max-height .35s ease}
+  .seg-body-in{padding:2px 20px 22px 186px}
+  .seg-body ul{list-style:none;display:grid;gap:9px}
+  .seg-body li{position:relative;padding-left:20px;color:var(--ink-dim);font-size:14.5px}
+  .seg-body li::before{content:"▸";position:absolute;left:0;color:var(--signal);font-size:11px;top:3px}
+  .seg-body .sub-role{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--signal);margin:6px 0 10px}
+  .seg-body ul + .sub-role{margin-top:22px}
+
+  /* ---------- PROJECTS ---------- */
+  .filter-bar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+  .filter{font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--ink-dim);background:var(--panel);border:1px solid var(--line-soft);border-radius:4px;padding:7px 13px;cursor:pointer}
+  .filter[aria-pressed="true"]{background:var(--signal);color:#05130D;border-color:var(--signal);font-weight:600}
+  .filter:hover:not([aria-pressed="true"]){border-color:var(--signal);color:var(--ink)}
+  .proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .card{border:1px solid var(--line);border-radius:var(--r);background:var(--panel);padding:20px;display:flex;flex-direction:column;gap:12px;transition:transform .2s,border-color .2s;color:inherit}
+  .card:hover{transform:translateY(-3px);border-color:var(--signal);text-decoration:none}
+  .card .top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+  .card .kind{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+  .card .stat{width:8px;height:8px;border-radius:50%;background:var(--signal);box-shadow:0 0 8px var(--signal)}
+  .card h3{font-family:var(--disp);font-weight:600;font-size:17px;color:var(--ink)}
+  .card p{font-size:13.5px;color:var(--ink-dim);flex:1}
+  .card .tags{display:flex;flex-wrap:wrap;gap:6px}
+  .card .tags span{font-family:var(--mono);font-size:10.5px;color:var(--signal);border:1px solid var(--line-soft);border-radius:3px;padding:3px 7px}
+  .card .open{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--ink-faint);text-transform:uppercase}
+  .card:hover .open{color:var(--signal)}
+  .card.hide{display:none}
+  /* Facility projects have no project page: static card, no hover lift */
+  .card.static{cursor:default}
+  .card.static:hover{transform:none;border-color:var(--line)}
+  .card.static .stat{background:var(--amber);box-shadow:0 0 8px var(--amber)}
+  .card.static .open{color:var(--ink-faint)}
+  .proj-grid.cols-2{grid-template-columns:repeat(2,1fr)}
+
+  /* ---------- CERTS ---------- */
+  .cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .cert{border:1px solid var(--line);border-radius:var(--r);background:var(--panel);padding:16px 18px;color:inherit;display:block;transition:transform .2s,border-color .2s}
+  .cert:hover{transform:translateY(-3px);border-color:var(--signal);text-decoration:none}
+  .cert .yr{font-family:var(--mono);font-size:11px;color:var(--amber);letter-spacing:.06em}
+  .cert .nm{font-family:var(--disp);font-weight:600;font-size:15px;margin:6px 0 3px;color:var(--ink)}
+  .cert .by{font-family:var(--mono);font-size:11px;color:var(--ink-faint)}
+
+  /* ---------- 2-COL ---------- */
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,48px)}
+  .stack{display:grid;gap:16px}
+  .row{border:1px solid var(--line);border-radius:var(--r);background:var(--panel);padding:18px 20px}
+  .row .r-top{display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap}
+  .row .r-title{font-family:var(--disp);font-weight:600;font-size:16px}
+  .row .r-yr{font-family:var(--mono);font-size:12px;color:var(--amber)}
+  .row .r-sub{font-family:var(--mono);font-size:12px;color:var(--ink-dim);margin-top:3px}
+  .row p{font-size:13.5px;color:var(--ink-dim);margin-top:8px}
+
+  /* ---------- CONTACT ---------- */
+  .contact-box{border:1px solid var(--line-soft);border-radius:var(--r);background:linear-gradient(180deg,var(--panel-2),var(--panel));padding:clamp(28px,5vw,48px);text-align:center}
+  .contact-box h2{font-family:var(--disp);font-weight:700;font-size:clamp(24px,4vw,40px);margin-bottom:12px}
+  .contact-box p{color:var(--ink-dim);max-width:46ch;margin:0 auto 26px}
+  .contact-lines{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+  .cl{font-family:var(--mono);font-size:13px;color:var(--ink);border:1px solid var(--line-soft);border-radius:var(--r);padding:11px 16px;display:inline-flex;gap:9px;align-items:center}
+  .cl:hover{border-color:var(--signal);color:var(--signal);text-decoration:none}
+  .cl .k{color:var(--ink-faint)}
+
+  footer{padding:26px 0 40px;border-top:1px solid var(--line)}
+  .foot-in{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;color:var(--ink-faint);letter-spacing:.05em}
+
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:860px){
+    .hero-grid{grid-template-columns:1fr;gap:36px}
+    .skill-grid{grid-template-columns:1fr}
+    .proj-grid{grid-template-columns:1fr 1fr}
+    .cert-grid{grid-template-columns:1fr 1fr}
+    .two-col{grid-template-columns:1fr}
+    .rail-nav{display:none}
+    .seg-head{grid-template-columns:136px 1fr auto;gap:10px}
+    .seg-body-in{padding-left:20px}
+  }
+  @media(max-width:560px){
+    .proj-grid,.proj-grid.cols-2,.cert-grid,.tiles{grid-template-columns:1fr}
+    .tc{display:none}
+    .seg-head{grid-template-columns:1fr auto}
+    .seg-yr{display:none}
+    .seg-title .org{padding-left:14px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+    .reveal{opacity:1;transform:none}
+  }
+
+  /* ---------- PRINT ---------- */
+  @media print{
+    :root{--ink:#111;--ink-dim:#333;--ink-faint:#555}
+    body{background:#fff;color:#111}
+    .rail,.tiles,.cta-row,.src-tag,.filter-bar,.seg-caret,.seg-badge.live,.card .stat,.card .open,.foot-in .rt,.contact-box p,.contact .eyebrow{display:none!important}
+    section,.hero{border:none;padding:14px 0}
+    .wrap{max-width:100%;padding:0}
+    h1{font-size:26px;color:#000}
+    h1 .sub{color:#333;font-size:14px}
+    .sec-head h2{font-size:16px;color:#000;border-bottom:1.5px solid #000;padding-bottom:4px;width:100%}
+    .sec-head .idx,.sec-head .meta{display:none}
+    .lede{color:#333;max-width:100%}
+    .skill-grid,.proj-grid,.cert-grid,.two-col{gap:8px}
+    .skill-card,.card,.cert,.row,.rundown,.seg,.contact-box{border:1px solid #bbb!important;background:#fff!important;break-inside:avoid;transform:none!important}
+    .seg-body{max-height:none!important}
+    .seg-body-in{padding:0 16px 14px 16px}
+    .chip,.card .tags span,.cl{color:#222;border-color:#999}
+    a{color:#111;text-decoration:none}
+    .contact-lines{justify-content:flex-start}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== STATUS RAIL ===== -->
+<header class="rail">
+  <div class="rail-in">
+    <div class="chan">
+      <span class="onair"><span class="dot"></span>ON AIR</span>
+      <span class="chan-id">
+        <span class="k">Channel</span>
+        <span class="v">K. N. BASILIO</span>
+      </span>
+    </div>
+    <nav class="rail-nav" aria-label="Section navigation">
+      <a href="#signal">Signal Path</a>
+      <a href="#rundown">Rundown</a>
+      <a href="#chain">Signal Chain</a>
+      <a href="#log">Initiatives</a>
+      <a href="#team">Team Projects</a>
+      <a href="#certs">Calibration</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <span class="tc" id="tc" aria-label="Local timecode, UTC plus 8">--:--:--:--</span>
+  </div>
+</header>
+
+<main>
+  <!-- ===== HERO ===== -->
+  <section class="hero" style="border-top:none">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <span class="src-tag"><span class="sq"></span>PRIMARY FEED · NOMINAL</span>
+          <h1>Kenneth Robert<br />Nouay Basilio
+            <span class="sub">Broadcast Systems, MCR, Media, and Automation Engineer</span>
+          </h1>
+          <p class="lede">Broadcast IT, System Engineer & Master Control Operations Specialist with extensive experience managing multi-channel playout across TV, radio, streaming, and OTT platforms. Skilled in system and playout automation, networking, media acquisition, and custom tool development. Focused on optimizing workflows, building high-availability architecture, and delivering resilient technical support in high-volume, mission-critical broadcast environments.</p>
+          <div class="cta-row">
+            <!-- PARAM: RESUME_PATH — see PARAMETERS.md -->
+            <a class="cta primary" href="assets/resume/Kenneth_Robert_Basilio_CV.pdf" download>&#8615; Download Resume</a>
+          </div>
+        </div>
+        <div class="tiles" aria-label="Career status tiles">
+          <div class="tile"><div class="num">16<small>+</small></div><div class="cap">Years On-Air Experience</div></div>
+          <div class="tile"><div class="num">24<small>/7</small></div><div class="cap">System Support and Operations</div></div>
+          <div class="tile"><div class="num">31</div><div class="cap">Channels &middot; TV, Radio, Streaming, Cloud, OTT</div></div>
+          <div class="tile"><div class="num">99<small>%+</small></div><div class="cap">Channel Availability and Continuity</div></div>
+          <div class="tile"><div class="num">Infra</div><div class="cap">On-Premise and Cloud Playout, Livestreaming Management</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SIGNAL PATH ===== -->
+  <section id="signal">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="idx">01</span>
+        <h2>Signal Path</h2>
+        <span class="meta">// CORE COMPETENCIES</span>
+      </div>
+      <div class="skill-grid">
+        <div class="skill-card reveal">
+          <h3>Broadcast Operations</h3>
+          <div class="chips">
+            <span class="chip">Multi-Channel Playout Support</span><span class="chip">MCR Operations</span>
+            <span class="chip">Video Routing &amp; Switching</span><span class="chip">Audio &amp; Video Processors</span>
+            <span class="chip">Graphics Systems</span><span class="chip">Video Servers</span>
+            <span class="chip">Harmonic Spectrum</span><span class="chip">Broadcast Automation (Etere)</span>
+            <span class="chip">Logo Inserters</span><span class="chip">Frame Sync</span>
+            <span class="chip">Livestreaming</span><span class="chip">Signal Acquisition &middot; Satellite, Fiber, Studio, IP</span>
+            <span class="chip">A/V Quality Control &middot; Monitoring &amp; Measurement</span>
+            <span class="chip">SDI &middot; MPEG-TS &middot; SRT &middot; RTMP &middot; HLS</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <h3>Media Asset Management</h3>
+          <div class="chips">
+            <span class="chip">Ingest</span><span class="chip">Transcode</span>
+            <span class="chip">Archiving &amp; Restoration</span><span class="chip">Datamover Workflows</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <h3>IT &amp; Infrastructure</h3>
+          <div class="chips">
+            <span class="chip">Windows Administration</span><span class="chip">Virtualization &middot; VMware vSphere</span>
+            <span class="chip">Networking &middot; CCNA</span><span class="chip">Broadcast IT Systems</span>
+            <span class="chip">Azure (AZ-900)</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <h3>Incident Handling</h3>
+          <div class="chips">
+            <span class="chip">24/7 Incident Response &amp; Escalation</span><span class="chip">Logging &amp; Reporting</span>
+            <span class="chip">Analysis</span><span class="chip">Investigation &amp; Resolution</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <h3>Systems &amp; Process</h3>
+          <div class="chips">
+            <span class="chip">Broadcast System Design</span><span class="chip">Installation</span>
+            <span class="chip">Testing &amp; Commissioning</span><span class="chip">Preventive &amp; Corrective Maintenance</span>
+            <span class="chip">Vendor Coordination</span><span class="chip">Business Continuity Process</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <h3>Development &amp; Automation</h3>
+          <div class="chips">
+            <span class="chip">Claude AI</span><span class="chip">Node.js</span><span class="chip">Express</span>
+            <span class="chip">Python</span><span class="chip">JavaScript</span><span class="chip">C</span>
+            <span class="chip">HTML / CSS</span><span class="chip">REST API Integration</span>
+            <span class="chip">FFmpeg</span><span class="chip">GStreamer</span>
+            <span class="chip">WebRTC</span><span class="chip">yt-dlp</span>
+            <span class="chip">LDAP / Active Directory Auth</span><span class="chip">Windows Services</span>
+            <span class="chip">Power Automate</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <h3>Cloud &amp; Media Delivery</h3>
+          <div class="chips">
+            <span class="chip">AWS Elemental Live</span><span class="chip">AWS S3</span>
+            <span class="chip">IBM Aspera</span><span class="chip">MediaMTX</span>
+            <span class="chip">IP Video Monitoring &amp; Multiviewers</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <h3>Media &amp; Design Tools</h3>
+          <div class="chips">
+            <span class="chip">After Effects</span><span class="chip">Premiere Pro</span>
+            <span class="chip">Visio</span><span class="chip">AutoCAD</span>
+            <span class="chip">SketchUp</span><span class="chip">MATLAB</span>
+            <span class="chip">Multisim</span><span class="chip">PSPICE</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== RUNDOWN ===== -->
+  <section id="rundown">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="idx">02</span>
+        <h2>Rundown</h2>
+        <span class="meta">// PROFESSIONAL EXPERIENCE &middot; TAP TO EXPAND</span>
+      </div>
+      <div class="rundown reveal">
+
+        <div class="seg" aria-expanded="false">
+          <button class="seg-head" type="button">
+            <span class="seg-yr">Dec 2011 &ndash; Present</span>
+            <span class="seg-title">
+              <span class="role">TOC System Engineer &amp; Master Control Room Engineer</span>
+              <span class="org">ABS-CBN Corporation &#9679; Media Technology Division &#9679; Technical Operations Center &#9679; Quezon City, Philippines</span>
+            </span>
+            <span style="display:flex;align-items:center;gap:12px">
+              <span class="seg-badge live">On Air</span>
+              <span class="seg-caret">&#9656;</span>
+            </span>
+          </button>
+          <div class="seg-body"><div class="seg-body-in">
+            <div class="sub-role">TOC System Engineer</div>
+            <ul>
+              <li>Sustained well above 99% program continuity across multi-channel playout systems and TOC workflows by delivering proactive technical support for video servers, broadcast automation, routers, and core broadcast and IT infrastructure.</li>
+              <li>Streamlined media operations by executing end-to-end workflows &mdash; including archiving, transcoding, and rapid video server restoration to guarantee on-time playout delivery.</li>
+              <li>Modernized core broadcast infrastructure by designing and implementing scalable system enhancements that expanded operational capacity and aligned workflows with emerging industry technologies.</li>
+              <li>Optimized multi-channel playout functionality by precisely configuring core broadcast software and hardware, including automation systems, video routers, frame synchronizers, logo inserters, and graphics engines.</li>
+              <li>Accelerated incident resolution by systematically analyzing device logs and applying rapid technical troubleshooting across core broadcast hardware and software.</li>
+              <li>Streamlined vendor support operations by managing key supplier relationships for product inquiries, technical configurations, and high-priority escalations.</li>
+            </ul>
+            <div class="sub-role">Master Control Room Engineer</div>
+            <ul>
+              <li>Oversaw technical operations and maintenance for the station&rsquo;s core facility infrastructure, sustaining high-availability systems and minimal unplanned downtime.</li>
+              <li>Secured high-reliability ingest across studio, satellite, fiber, and IP feeds from internal and external production facilities to guarantee uninterrupted media acquisition through precise routing and switching aligned with tight production schedules.</li>
+              <li>Maintained strict broadcast compliance and signal integrity across 31 channels in 24/7 operations through continuous audio/video measurement and rapid application of emergency restoration procedures with no compliance-related violations recorded.</li>
+              <li>Deployed and commissioned critical broadcast hardware and systems on schedule, enhancing baseline system capabilities and operational reliability.</li>
+              <li>Minimized equipment failures and maintained uninterrupted business continuity in high-availability operations.</li>
+              <li>Performed critical ad-hoc technical tasks, ensuring uninterrupted workflow continuity during peak demands and unexpected operational shifts.</li>
+            </ul>
+          </div></div>
+        </div>
+
+        <div class="seg" aria-expanded="false">
+          <button class="seg-head" type="button">
+            <span class="seg-yr">Sep 2010 &ndash; Nov 2011</span>
+            <span class="seg-title">
+              <span class="role">Headend Technician</span>
+              <span class="org">Cablelink and Holdings Corporation &#9679; Engineering Division &#9679; Technical Operations Center &#9679; Para&ntilde;aque City, Philippines</span>
+            </span>
+            <span style="display:flex;align-items:center;gap:12px">
+              <span class="seg-badge arch">Archive</span>
+              <span class="seg-caret">&#9656;</span>
+            </span>
+          </button>
+          <div class="seg-body"><div class="seg-body-in"><ul>
+            <li>Sustained signal compliance and optimal audio/video transmission levels across all cable channels through continuous monitoring and precise calibration, reducing signal degradation and preventing compliance-related interruptions.</li>
+            <li>Maximized signal strength and reception quality by keeping satellite dishes aligned to optimal parameters across all downlinks.</li>
+            <li>Upgraded headend facility efficiency by modernizing structured cabling, reorganizing channel groups, and establishing an accurate physical asset inventory.</li>
+          </ul></div></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SIGNAL CHAIN (scroll-driven 3D; see assets/js/signal-chain.js) ===== -->
+  <section id="chain" class="chain">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="idx">03</span>
+        <h2>Signal Chain</h2>
+        <span class="meta">// INGEST TO AIR &middot; SCROLL TO FOLLOW THE FEED</span>
+      </div>
+      <p class="chain-lede">Every channel passes through the same four stages before it reaches viewers. These are the tools I built for each one.</p>
+
+      <div class="chain-pin">
+        <div class="chain-stage">
+          <canvas class="chain-canvas" aria-hidden="true"></canvas>
+          <div class="chain-top">
+            <span class="chain-hud"><b id="chainStop">Standby</b> &middot; <b id="chainZone"></b></span>
+            <a class="chain-skip" href="#log">Skip to projects &#9656;</a>
+          </div>
+          <div class="chain-ticks" role="group" aria-label="Jump to a stage">
+            <button class="chain-tick" type="button">1 Ingest</button>
+            <button class="chain-tick" type="button">2 QC</button>
+            <button class="chain-tick" type="button">3 Playout</button>
+            <button class="chain-tick" type="button">4 Delivery</button>
+          </div>
+          <span class="chain-status" aria-live="polite"></span>
+
+          <!-- PARAM: CHAIN_STOPS — see PARAMETERS.md. Keep 6 cards in this order: intro, 4 stages, final. -->
+          <ol class="chain-stops">
+            <li class="chain-card" data-role="intro">
+              <span class="label">From uplink to air</span>
+              <h3>Follow a feed through the chain</h3>
+              <p>Four stages every channel passes through, and the tools I built for each. Scroll to move down the rack.</p>
+            </li>
+            <li class="chain-card">
+              <span class="label">Stage 1 &middot; Ingest &amp; acquisition</span>
+              <h3>Getting the material in</h3>
+              <p>Satellite, fiber, studio and IP feeds arrive, and recordings flow in from regional stations. Files are converted into formats the playout servers accept.</p>
+              <div class="chain-links">
+                <a href="projects/media-converter.html">TOC Media Converter</a>
+                <a href="projects/rng-toa-aspera-uploader.html">Regional TOA &amp; Aspera Uploader</a>
+              </div>
+            </li>
+            <li class="chain-card">
+              <span class="label">Stage 2 &middot; Quality control</span>
+              <h3>Checking it before it airs</h3>
+              <p>Embedded captions are previewed against broadcast standards, and the traffic log is matched against the automation playlist so no spot is missed.</p>
+              <div class="chain-links">
+                <a href="projects/caption-viewer.html">Closed Caption Viewer</a>
+                <a href="projects/dol-verifier.html">DOL Verification App</a>
+              </div>
+            </li>
+            <li class="chain-card">
+              <span class="label">Stage 3 &middot; Playout &amp; proof of air</span>
+              <h3>Putting it on air, and proving it</h3>
+              <p>Automation runs the playlists across channels. Every channel is recorded 24/7, so Sales can show exactly what aired and when.</p>
+              <div class="chain-links">
+                <a href="projects/teams-chatbot.html">Playlist &amp; Report Live Service</a>
+                <a href="projects/compliance-recorder.html">Compliance Recording &amp; TOA</a>
+                <a href="projects/hires-tape-on-air.html">HiRes Tape On Air</a>
+              </div>
+            </li>
+            <li class="chain-card">
+              <span class="label">Stage 4 &middot; Delivery &amp; monitoring</span>
+              <h3>Watching every output</h3>
+              <p>Streams leave through livestream encoders to OTT, and MCR watches every on-premise and cloud channel on in-house multiviewers.</p>
+              <div class="chain-links">
+                <a href="projects/encoder-monitor.html">Encoder Monitoring Panel</a>
+                <a href="projects/ip-multiviewer.html">IP Multiviewer</a>
+                <a href="projects/cloud-multiviewer.html">Cloud Playout Multiviewer</a>
+              </div>
+            </li>
+            <li class="chain-card" data-role="final">
+              <span class="label">All signals nominal</span>
+              <h3>31 channels on air</h3>
+              <p>TV, radio, streaming, cloud and OTT, supported 24/7 from the Technical Operations Center.</p>
+              <div class="chain-links"><a href="#log">See all project initiatives</a></div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ENGINEERING PROJECT INITIATIVES ===== -->
+  <section id="log">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="idx">04</span>
+        <h2>Engineering Project Initiatives</h2>
+        <span class="meta">// CLICK CARD TO VIEW DEMO &middot; FILTER BY STACK</span>
+      </div>
+      <div class="filter-bar reveal" role="group" aria-label="Filter projects by technology">
+        <button class="filter" data-f="all" aria-pressed="true">All</button>
+        <button class="filter" data-f="node" aria-pressed="false">Node.js</button>
+        <button class="filter" data-f="ffmpeg" aria-pressed="false">FFmpeg</button>
+        <button class="filter" data-f="claude" aria-pressed="false">Claude AI</button>
+        <button class="filter" data-f="monitor" aria-pressed="false">Monitoring</button>
+      </div>
+      <div class="proj-grid">
+
+        <!-- PARAM: PROJECT_LINKS — see PARAMETERS.md -->
+        <a class="card reveal" href="projects/media-converter.html" data-tags="ffmpeg node claude">
+          <div class="top"><span class="kind">TOC TOOL</span><span class="stat"></span></div>
+          <h3>TOC Media Converter</h3>
+          <p>Used by TOC to transcode a range of file formats into broadcast-compatible, playable files. FFmpeg-driven web app for batch audio/video transcoding with broadcast-specific presets and a clean browser UI.</p>
+          <div class="tags"><span>FFmpeg</span><span>Node.js</span><span>HTML</span><span>Claude AI</span></div>
+          <span class="open">Open log &#9656;</span>
+        </a>
+
+        <a class="card reveal" href="projects/compliance-recorder.html" data-tags="ffmpeg node monitor claude">
+          <div class="top"><span class="kind">TOC TOOL and WEB APP</span><span class="stat"></span></div>
+          <h3>Compliance Recording Launcher & Tape On Air Service</h3>
+          <p>Used by the Sales team for &ldquo;proof of airing&rdquo; and airing dispute resolution. Configurable multi-channel 24/7 SDI compliance recording via FFmpeg/DeckLink with per-channel auto purge, timestamp and text overlay. Recordings are stored on a NAS and served over a web app for access-gated viewing, trimming and export with watermarking &mdash; eliminating the purchase of an expensive commercial Tape-On-Air solution.</p>
+          <div class="tags"><span>FFmpeg</span><span>DeckLink</span><span>Node.js</span><span>Claude AI</span></div>
+          <span class="open">Open log &#9656;</span>
+        </a>
+
+        <a class="card reveal" href="projects/teams-chatbot.html" data-tags="node claude">
+          <div class="top"><span class="kind">AUTOMATION</span><span class="stat"></span></div>
+          <h3>Playout Playlist and Report Live Service</h3>
+          <p>Live playlist generation with daily runs and a Production Guide report, delivered via e-mail, MS Teams chat or SharePoint and automated using Power Automate. A workaround that removes the need for additional licenses for playlist and report generation and delivery.</p>
+          <div class="tags"><span>Node.js</span><span>Power Automate</span><span>SharePoint</span><span>Claude AI</span></div>
+          <span class="open">Open log &#9656;</span>
+        </a>
+
+        <a class="card reveal" href="projects/encoder-monitor.html" data-tags="node monitor claude">
+          <div class="top"><span class="kind">DASHBOARD</span><span class="stat"></span></div>
+          <h3>Livestream Encoder Monitoring Panel</h3>
+          <p>Browser-based dashboard for livestream encoder node health, running events and operational status at a glance. Encoders report alerts and health through web callback URLs, letting MCR act immediately on streaming issues before they cause viewer-facing stream degradation.</p>
+          <div class="tags"><span>Node.js</span><span>Express</span><span>REST Callbacks</span><span>Claude AI</span></div>
+          <span class="open">Open log &#9656;</span>
+        </a>
+
+        <a class="card reveal" href="projects/ip-multiviewer.html" data-tags="node monitor ffmpeg claude">
+          <div class="top"><span class="kind">MONITORING</span><span class="stat"></span></div>
+          <h3>IP Multiviewer</h3>
+          <p>Used daily by MCR as a browser-based multiviewer tile wall for IP feeds &mdash; an in-house build that eliminated the need to purchase an enterprise-grade multiviewer. Built on the TOC&rsquo;s Node.js + flat-JSON stack with FFmpeg and MediaMTX.</p>
+          <div class="tags"><span>Node.js</span><span>MediaMTX</span><span>FFmpeg</span><span>Claude AI</span></div>
+          <span class="open">Open log &#9656;</span>
+        </a>
+
+        <a class="card reveal" href="projects/hires-tape-on-air.html" data-tags="ffmpeg node claude">
+          <div class="top"><span class="kind">TOC TOOL and WEB APP</span><span class="stat"></span></div>
+          <h3>HiRes Tape On Air Service</h3>
+          <p>Similar to the Tape On Air Service, but for aired material repurposing. High resolution capture creates a low resolution proxy for easier scrubbing and material trimming.</p>
+          <div class="tags"><span>FFmpeg</span><span>Node.js</span><span>Claude AI</span></div>
+          <span class="open">Open log &#9656;</span>
+        </a>
+
+        <a class="card reveal" href="projects/dol-verifier.html" data-tags="node claude">
+          <div class="top"><span class="kind">TOC TOOL and WEB APP</span><span class="stat"></span></div>
+          <h3>Daily Operations Logs Verification App</h3>
+          <p>Prevents mismatches between the playlist generated by the traffic system and the uploaded automation playlist by letting operators check, verify and flag discrepancies prior to airing &mdash; preventing missed spots that lead to revenue loss.</p>
+          <div class="tags"><span>Node.js</span><span>Express</span><span>Claude AI</span></div>
+          <span class="open">Open log &#9656;</span>
+        </a>
+
+        <a class="card reveal" href="projects/cloud-multiviewer.html" data-tags="node monitor ffmpeg claude">
+          <div class="top"><span class="kind">MONITORING</span><span class="stat"></span></div>
+          <h3>Cloud Playout Multiviewer with Recorder</h3>
+          <p>Used daily by MCR as a tile wall of all cloud playout channels operated by TOC for broader monitoring coverage, with one-click recording for advanced proof-of-airing requests &mdash; reducing report turnaround from hours to minutes.</p>
+          <div class="tags"><span>WebRTC</span><span>FFmpeg</span><span>MediaMTX</span><span>Claude AI</span></div>
+          <span class="open">Open log &#9656;</span>
+        </a>
+
+        <a class="card reveal" href="projects/rng-toa-aspera-uploader.html" data-tags="node monitor ffmpeg claude">
+          <div class="top"><span class="kind">TOC TOOL and WEB APP</span><span class="stat"></span></div>
+          <h3>Regional Station TOA and IBM Aspera Uploader</h3>
+          <p>Regional stations had no record of what they aired, and covering each site commercially would have cost many times over. This deploys the in-house Tape On Air system to every station with an uploader built on the IBM Aspera SDK that survives reboots and outages, consolidating all regional recordings onto the HQ NAS as one searchable archive &mdash; eliminating the purchase of Tape-On-Air solutions across several regional sites.</p>
+          <div class="tags"><span>IBM Aspera SDK</span><span>FFmpeg</span><span>Node.js</span><span>Claude AI</span></div>
+          <span class="open">Open log &#9656;</span>
+        </a>
+
+        <a class="card reveal" href="projects/caption-viewer.html" data-tags="node monitor ffmpeg claude">
+          <div class="top"><span class="kind">TOC TOOL and WEB APP</span><span class="stat"></span></div>
+          <h3>Closed Caption Viewer</h3>
+          <p>Used to preview embedded closed captions (EIA-608 or EIA-708) as part of broadcasting compliance and standards prior to material processing.</p>
+          <div class="tags"><span>Closed Captions</span><span>FFmpeg</span><span>Node.js</span><span>Claude AI</span></div>
+          <span class="open">Open log &#9656;</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TEAM PROJECT ENGAGEMENTS ===== -->
+  <section id="team">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="idx">05</span>
+        <h2>Team Project Engagements</h2>
+        <span class="meta">// FACILITY &amp; INFRASTRUCTURE &middot; TEAM DELIVERY</span>
+      </div>
+      <div class="proj-grid cols-2">
+
+        <!-- Team projects: no project page, rendered as static cards -->
+        <article class="card static reveal">
+          <div class="top"><span class="kind">TEAM PROJECT</span><span class="stat"></span></div>
+          <h3>Multi-Channel Playout &amp; Multi-Session Ingest</h3>
+          <p>Modernized legacy playout by supporting multiple playout channels in a single facility, improving operator efficiency. Responsible for setup, installation, configuration, testing and operator training.</p>
+          <div class="tags"><span>Playout</span><span>Ingest</span><span>Commissioning</span></div>
+          <span class="open">ABS-CBN TOC &middot; Facility Upgrade</span>
+        </article>
+
+        <article class="card static reveal">
+          <div class="top"><span class="kind">TEAM PROJECT</span><span class="stat"></span></div>
+          <h3>TOC Video Router Migration</h3>
+          <p>Replaced the legacy SDI video router to meet the requirements of the TOC expansion &mdash; delivered together with the multi-channel playout and multi-session ingest projects to enable a high-density playout facility.</p>
+          <div class="tags"><span>SDI Routing</span><span>Migration</span><span>Commissioning</span></div>
+          <span class="open">ABS-CBN TOC &middot; Facility Upgrade</span>
+        </article>
+
+        <article class="card static reveal">
+          <div class="top"><span class="kind">TEAM PROJECT</span><span class="stat"></span></div>
+          <h3>TOC Video Server Migration</h3>
+          <p>Replaced the legacy video server as part of the TOC facility upgrade, enabling channel enhancements such as HD capability and closed-captioning support. Responsible for setup, installation, configuration and testing.</p>
+          <div class="tags"><span>Video Servers</span><span>HD</span><span>Closed Captions</span></div>
+          <span class="open">ABS-CBN TOC &middot; Facility Upgrade</span>
+        </article>
+
+        <article class="card static reveal">
+          <div class="top"><span class="kind">TEAM PROJECT</span><span class="stat"></span></div>
+          <h3>TOC Livestreaming Encoders Setup and Administration</h3>
+          <p>Set up livestreaming encoders such as Haivision and AWS Elemental Live as the company expanded from free TV to livestreaming and VOD. Responsible for livestreaming support, device administration and user access management.</p>
+          <div class="tags"><span>Haivision</span><span>AWS Elemental Live</span><span>Livestreaming</span><span>VOD</span></div>
+          <span class="open">ABS-CBN TOC &middot; Livestreaming</span>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CALIBRATION ===== -->
+  <section id="certs">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="idx">06</span>
+        <h2>Calibration</h2>
+        <span class="meta">// TRAINING &amp; CERTIFICATION &middot; TAP TO VIEW</span>
+      </div>
+      <div class="cert-grid">
+        <!-- PARAM: CERT_LINKS — see PARAMETERS.md -->
+
+        <!-- 2025 -->
+        <a class="cert reveal" href="certificates.html#comptia-cysa"><div class="yr">2025</div><div class="nm">CompTIA CySA+</div><div class="by">Nexus Cloud IT Solutions</div></a>
+        <a class="cert reveal" href="certificates.html#ec-council"><div class="yr">2025</div><div class="nm">EC-Council Certificate</div><div class="by">EC-Council</div></a>
+        <a class="cert reveal" href="certificates.html#windows-server-2019"><div class="yr">2025</div><div class="nm">Windows Server 2019 &middot; Administration &amp; Automation</div><div class="by">Nexus Cloud IT Solutions</div></a>
+
+        <!-- 2024 -->
+        <a class="cert reveal" href="certificates.html#amagi-cloudport"><div class="yr">2024</div><div class="nm">Amagi CloudPort Essentials</div><div class="by">Amagi</div></a>
+        <a class="cert reveal" href="certificates.html#amagi-live"><div class="yr">2024</div><div class="nm">Amagi LIVE Essentials Program</div><div class="by">Amagi</div></a>
+        <a class="cert reveal" href="certificates.html#analytics-operations"><div class="yr">2024</div><div class="nm">Analytics Applications in Operations</div><div class="by">Development Academy of the Philippines</div></a>
+        <a class="cert reveal" href="certificates.html#aws-elemental-live"><div class="yr">2024</div><div class="nm">AWS Elemental Live &middot; Advanced</div><div class="by">AWS Training and Certification</div></a>
+        <a class="cert reveal" href="certificates.html#computing-python"><div class="yr">2024</div><div class="nm">Computing in Python</div><div class="by">Development Academy of the Philippines</div></a>
+        <a class="cert reveal" href="certificates.html#dashboards-drilldown"><div class="yr">2024</div><div class="nm">Dashboards and Drill-Down Analytics</div><div class="by">Development Academy of the Philippines</div></a>
+        <a class="cert reveal" href="certificates.html#dataviz-fundamentals"><div class="yr">2024</div><div class="nm">Data Visualization Fundamentals</div><div class="by">Development Academy of the Philippines</div></a>
+        <a class="cert reveal" href="certificates.html#dataviz-pathway"><div class="yr">2024</div><div class="nm">Data Visualization Microspecialization Pathway</div><div class="by">Development Academy of the Philippines</div></a>
+        <a class="cert reveal" href="certificates.html#dataviz-tableau-python"><div class="yr">2024</div><div class="nm">Data Visualization Using Tableau and Python</div><div class="by">Development Academy of the Philippines</div></a>
+        <a class="cert reveal" href="certificates.html#excel-data-prep"><div class="yr">2024</div><div class="nm">Essential Excel Skills for Data Preparation and Analysis</div><div class="by">Development Academy of the Philippines</div></a>
+        <a class="cert reveal" href="certificates.html#getting-grounded-analytics"><div class="yr">2024</div><div class="nm">Getting Grounded on Analytics</div><div class="by">Development Academy of the Philippines</div></a>
+        <a class="cert reveal" href="certificates.html#operational-analytics-pathway"><div class="yr">2024</div><div class="nm">Operational Analytics Microspecialization Pathway</div><div class="by">Development Academy of the Philippines</div></a>
+        <a class="cert reveal" href="certificates.html#storytelling-data"><div class="yr">2024</div><div class="nm">Storytelling Using Data</div><div class="by">Development Academy of the Philippines</div></a>
+
+        <!-- 2023 -->
+        <a class="cert reveal" href="certificates.html#coursera-data-foundations"><div class="yr">2023</div><div class="nm">Foundations: Data, Data, Everywhere</div><div class="by">Coursera</div></a>
+        <a class="cert reveal" href="certificates.html#coursera-python"><div class="yr">2023</div><div class="nm">Google Crash Course on Python</div><div class="by">Coursera</div></a>
+
+        <!-- 2022 -->
+        <a class="cert reveal" href="certificates.html#alibaba-cloud"><div class="yr">2022</div><div class="nm">Alibaba Cloud Associate &middot; Cloud Computing</div><div class="by">Alibaba Cloud</div></a>
+        <a class="cert reveal" href="certificates.html#dap-sp101"><div class="yr">2022</div><div class="nm">SP101</div><div class="by">Development Academy of the Philippines</div></a>
+        <a class="cert reveal" href="certificates.html#six-sigma"><div class="yr">2022</div><div class="nm">Six Sigma Yellow Belt</div><div class="by">6Sigma Study</div></a>
+
+        <!-- 2021 -->
+        <a class="cert reveal" href="certificates.html#pm-fundamentals"><div class="yr">2021</div><div class="nm">Project Management Fundamentals</div><div class="by">MST Connect</div></a>
+
+        <!-- 2020 -->
+        <a class="cert reveal" href="certificates.html#az-900"><div class="yr">2020</div><div class="nm">Microsoft Azure Fundamentals &middot; AZ-900</div><div class="by">Microsoft</div></a>
+
+        <!-- 2017 -->
+        <a class="cert reveal" href="certificates.html#ccna"><div class="yr">2017</div><div class="nm">Cisco CCNA v3 Bootcamp</div><div class="by">Nexus IT Training Center</div></a>
+        <a class="cert reveal" href="certificates.html#etere"><div class="yr">2017</div><div class="nm">Etere Automation &middot; Advanced</div><div class="by">ETERE</div></a>
+        <a class="cert reveal" href="certificates.html#vmware"><div class="yr">2017</div><div class="nm">VMware vSphere 6.0 &middot; ICM</div><div class="by">Nexus IT Training Center</div></a>
+
+        <!-- 2014 -->
+        <a class="cert reveal" href="certificates.html#harmonic"><div class="yr">2014</div><div class="nm">Harmonic Spectrum &middot; MediaCenter / Mediaport / ChannelPort</div><div class="by">Harmonic Inc.</div></a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== OFF-AIR RECORD ===== -->
+  <section id="record">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="idx">07</span>
+        <h2>Off-Air Record</h2>
+        <span class="meta">// EDUCATION &middot; LEADERSHIP &middot; RESEARCH</span>
+      </div>
+      <div class="two-col">
+        <div>
+          <span class="label" style="display:block;margin-bottom:14px">Education</span>
+          <div class="stack">
+            <div class="row reveal">
+              <div class="r-top"><span class="r-title">BS Electronics &amp; Communications Engineering</span><span class="r-yr">2005&ndash;2010</span></div>
+              <div class="r-sub">University of Santo Tomas</div>
+            </div>
+            <div class="row reveal">
+              <div class="r-top"><span class="r-title">Secondary Education Diploma</span><span class="r-yr">2001&ndash;2005</span></div>
+              <div class="r-sub">Paco Catholic School</div>
+            </div>
+          </div>
+          <span class="label" style="display:block;margin:24px 0 14px">Research</span>
+          <div class="row reveal">
+            <div class="r-top"><span class="r-title">Power-Line Data Communications System</span><span class="r-yr">2010</span></div>
+            <div class="r-sub">BPSK &amp; Convolutional Coding</div>
+            <p>Designed a modem enabling data transfer over intra-building electrical outlets &mdash; exploring internet delivery across the existing power grid.</p>
+          </div>
+        </div>
+        <div>
+          <span class="label" style="display:block;margin-bottom:14px">Leadership &amp; Activities</span>
+          <div class="stack">
+            <div class="row reveal">
+              <div class="r-top"><span class="r-title">VP for Radio Operations</span><span class="r-yr">2009&ndash;2010</span></div>
+              <div class="r-sub">UST DX-1 Amateur Radio Club</div>
+              <p>Managed radio equipment and assets for university-wide and local events.</p>
+            </div>
+            <div class="row reveal">
+              <div class="r-top"><span class="r-title">Specials Section &amp; News Editor</span><span class="r-yr">2008&ndash;2009</span></div>
+              <div class="r-sub">Thomasian Engineer Media</div>
+              <p>Edited Specials and News content for the Faculty of Engineering's official publication.</p>
+            </div>
+            <div class="row reveal">
+              <div class="r-top"><span class="r-title">Project / Assistant Head</span><span class="r-yr">2008&ndash;2009</span></div>
+              <div class="r-sub">General Information Quiz Contest</div>
+              <p>Led budget planning, communications and division coordination for the faculty-wide event.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <span class="eyebrow reveal" style="display:block;text-align:center;margin-bottom:14px">// STANDING BY FOR PATCH</span>
+      <div class="contact-box reveal">
+        <h2>Let's put something on-air.</h2>
+        <p>Open to broadcast, media-tech and broadcast-IT engineering roles. Reach the master control desk direct:</p>
+        <div class="contact-lines">
+          <!-- PARAM: CONTACT_DETAILS — see PARAMETERS.md -->
+          <a class="cl" href="mailto:kennethr.basilio@gmail.com"><span class="k">MAIL</span>kennethr.basilio@gmail.com</a>
+          <a class="cl" href="mailto:kennethrobert.basilio@yahoo.com"><span class="k">ALT</span>kennethrobert.basilio@yahoo.com</a>
+          <a class="cl" href="tel:+639165155697"><span class="k">TEL</span>+63 916 515 5697</a>
+          <a class="cl" href="https://www.linkedin.com/in/kennethrobertbasilio" target="_blank" rel="noopener noreferrer"><span class="k">IN</span>linkedin.com/in/kennethrobertbasilio</a>
+          <span class="cl"><span class="k">LOC</span>General Trias, Cavite 4107 &middot; Philippines</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <span>&copy; <span id="yr"></span> KENNETH ROBERT NOUAY BASILIO &middot; ALL SIGNALS NOMINAL</span>
+    <span class="rt">BUILT WITH VANILLA HTML / CSS / JS &middot; NO TRACKERS</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* PARAM: TIMECODE settings — see PARAMETERS.md */
+  var TZ_OFFSET_HOURS = 8;      /* UTC+8 (Philippine Time) */
+  var TZ_LABEL        = 'UTC+8';
+  var FPS             = 25;
+
+  var tcEl = document.getElementById('tc');
+  function pad(n){ return String(n).padStart(2,'0'); }
+  function tick(){
+    if(!tcEl) return;
+    var t = new Date(Date.now() + TZ_OFFSET_HOURS * 3600 * 1000);
+    var ff = Math.floor((t.getUTCMilliseconds()/1000) * FPS);
+    tcEl.textContent = pad(t.getUTCHours())+':'+pad(t.getUTCMinutes())+':'+
+                       pad(t.getUTCSeconds())+':'+pad(ff)+' '+TZ_LABEL;
+  }
+  tick();
+  setInterval(tick, 40);
+
+  var yr = document.getElementById('yr');
+  if (yr) yr.textContent = new Date().getFullYear();
+
+  /* Rundown expand / collapse */
+  document.querySelectorAll('.seg').forEach(function(seg){
+    var head = seg.querySelector('.seg-head');
+    var body = seg.querySelector('.seg-body');
+    head.addEventListener('click', function(){
+      var open = seg.getAttribute('aria-expanded') === 'true';
+      seg.setAttribute('aria-expanded', open ? 'false' : 'true');
+      body.style.maxHeight = open ? '0px' : (body.scrollHeight + 40) + 'px';
+    });
+  });
+
+  /* Project filter */
+  var filters = document.querySelectorAll('.filter');
+  var cards   = document.querySelectorAll('#log .card');
+  filters.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      filters.forEach(function(b){ b.setAttribute('aria-pressed','false'); });
+      btn.setAttribute('aria-pressed','true');
+      var f = btn.getAttribute('data-f');
+      cards.forEach(function(c){
+        var tags = (c.getAttribute('data-tags') || '').split(' ');
+        var show = (f === 'all') || tags.indexOf(f) > -1;
+        c.classList.toggle('hide', !show);
+      });
+    });
+  });
+
+  /* Scroll reveal */
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: .12 });
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+  }
+})();
+</script>
+<script src="assets/js/signal-chain.js" defer></script>
+</body>
+</html>

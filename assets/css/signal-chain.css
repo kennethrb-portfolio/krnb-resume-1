@@ -1,0 +1,113 @@
+/* =========================================================
+   signal-chain.css — "Signal Chain" scroll section (index.html #chain)
+   Uses the palette tokens defined in index.html :root. Do not fork them.
+
+   Two layouts:
+   - Default (no JS, no WebGL, reduced motion, print): the stops are a
+     plain card grid. This is the content of record.
+   - .chain.is-live (added by signal-chain.js): pinned 3D stage with the
+     active stop's card overlaid on it.
+   ========================================================= */
+
+.chain{
+  /* PARAM: CHAIN_SCROLL_LENGTH — see PARAMETERS.md */
+  --chain-length:340vh;
+  --rail-h:52px;               /* set from the real rail height by signal-chain.js */
+  --stage-bg:#0D1118;          /* must match CONFIG.STAGE_COLOR in signal-chain.js */
+}
+.chain-lede{color:var(--ink-dim);font-size:15px;max-width:62ch;margin:-14px 0 26px}
+
+/* ---------- Default: card grid ---------- */
+.chain-canvas,.chain-top,.chain-ticks,.chain-status{display:none}
+.chain-stops{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.chain-card{border:1px solid var(--line);border-radius:var(--r);background:var(--panel);padding:20px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.chain-card[data-role="intro"]{display:none}
+.chain-card[data-role="final"]{grid-column:1/-1}
+.chain-card h3{font-family:var(--disp);font-weight:600;font-size:clamp(17px,2vw,20px);line-height:1.2;color:var(--ink)}
+.chain-card p{font-size:13.5px;color:var(--ink-dim)}
+.chain-links{display:flex;flex-wrap:wrap;gap:7px;margin-top:2px}
+.chain-links a{font-family:var(--mono);font-size:11.5px;color:var(--ink);border:1px solid var(--line-soft);border-radius:4px;padding:6px 10px;background:var(--panel-2)}
+.chain-links a::after{content:" \25B8";color:var(--signal)}
+.chain-links a:hover{border-color:var(--signal);color:var(--signal);text-decoration:none}
+
+@media(max-width:560px){
+  .chain-stops{grid-template-columns:1fr}
+}
+
+/* ---------- Live: pinned 3D stage ---------- */
+@media screen{
+  .chain.is-live .chain-pin{position:relative;height:var(--chain-length)}
+  .chain.is-live .chain-stage{
+    position:sticky;top:calc(var(--rail-h) + 12px);
+    height:calc(100vh - var(--rail-h) - 24px);
+    height:calc(100svh - var(--rail-h) - 24px);
+    border:1px solid var(--line-soft);border-radius:var(--r);
+    background:var(--stage-bg);overflow:hidden;
+  }
+  .chain.is-live .chain-canvas{display:block;position:absolute;inset:0;width:100%;height:100%}
+
+  .chain.is-live .chain-top{
+    display:flex;align-items:center;gap:12px;
+    position:absolute;z-index:2;top:0;left:0;right:0;padding:12px 14px 0;
+    font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--ink-faint);font-variant-numeric:tabular-nums;
+  }
+  .chain-hud{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .chain-hud b{color:var(--amber);font-weight:500}
+  .chain-hud b.on{color:var(--tally)}
+  .chain-skip{
+    margin-left:auto;flex:none;color:var(--ink-dim);letter-spacing:.08em;
+    border:1px solid var(--line-soft);border-radius:4px;padding:5px 9px;background:rgba(11,14,20,.72);
+  }
+  .chain-skip:hover{color:var(--signal);border-color:var(--signal);text-decoration:none}
+
+  .chain.is-live .chain-ticks{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:6px;
+    position:absolute;z-index:2;top:46px;left:14px;width:min(520px,44%);
+  }
+  .chain-tick{
+    appearance:none;background:none;border:none;border-top:2px solid var(--line-soft);
+    padding:6px 0 0;text-align:left;cursor:pointer;min-width:0;
+    font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--ink-faint);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    transition:color .25s,border-color .25s;
+  }
+  .chain-tick:hover{color:var(--ink)}
+  .chain-tick[data-state="active"]{border-top-color:var(--amber);color:var(--amber)}
+  .chain-tick[data-state="done"]{border-top-color:var(--signal);color:var(--ink-dim)}
+
+  .chain.is-live .chain-status[hidden]{display:none}
+  .chain.is-live .chain-status{
+    display:block;position:absolute;z-index:2;right:14px;bottom:12px;
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);
+  }
+
+  .chain.is-live .chain-stops{display:block;position:absolute;z-index:3;left:14px;bottom:14px;width:min(380px,40%)}
+  .chain.is-live .chain-card{
+    position:absolute;left:0;right:0;bottom:0;
+    background:rgba(20,25,34,.9);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+    border-color:var(--line-soft);
+    opacity:0;transform:translateY(8px);pointer-events:none;
+    transition:opacity .35s ease,transform .35s ease;
+  }
+  .chain.is-live .chain-card[data-role="intro"]{display:flex}
+  .chain.is-live .chain-card[aria-current="step"]{opacity:1;transform:none;pointer-events:auto}
+  .chain.is-live .chain-card[data-role="final"]{border-color:rgba(79,227,166,.45)}
+}
+@media screen and (max-width:860px),screen and (max-aspect-ratio:1/1){
+  .chain.is-live .chain-stops{width:auto;right:14px;left:14px}
+  .chain.is-live .chain-ticks{width:auto;right:14px}
+  .chain.is-live .chain-card{padding:16px}
+}
+@media screen and (max-width:420px){
+  .chain-tick{font-size:9px;letter-spacing:.06em}
+}
+
+/* ---------- Print: always the card grid ---------- */
+@media print{
+  .chain-card{border:1px solid #bbb!important;background:#fff!important;break-inside:avoid}
+  .chain-card h3{color:#000}
+  .chain-card p{color:#333}
+  .chain-links a{color:#222;border-color:#999;background:#fff}
+  .chain-links a::after{content:""}
+}
