@@ -14,6 +14,9 @@
   --chain-length:340vh;
   --rail-h:52px;               /* set from the real rail height by signal-chain.js */
   --stage-bg:#0D1118;          /* must match CONFIG.STAGE_COLOR in signal-chain.js */
+  /* PARAM: CHAIN_POSTERS — still of the opening shot shown until the 3D is ready */
+  --poster-wide:url("../img/signal-chain-poster-wide.webp");
+  --poster-tall:url("../img/signal-chain-poster-tall.webp");
 }
 .chain-lede{color:var(--ink-dim);font-size:15px;max-width:62ch;margin:-14px 0 26px}
 
@@ -42,9 +45,10 @@
     height:calc(100vh - var(--rail-h) - 24px);
     height:calc(100svh - var(--rail-h) - 24px);
     border:1px solid var(--line-soft);border-radius:var(--r);
-    background:var(--stage-bg);overflow:hidden;
+    background:var(--stage-bg) var(--poster-wide) center / cover no-repeat;overflow:hidden;
   }
-  .chain.is-live .chain-canvas{display:block;position:absolute;inset:0;width:100%;height:100%}
+  .chain.is-live .chain-canvas{display:block;position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity .4s ease}
+  .chain.is-live .chain-stage.is-ready .chain-canvas{opacity:1}
 
   .chain.is-live .chain-top{
     display:flex;align-items:center;gap:12px;
@@ -85,7 +89,7 @@
   .chain.is-live .chain-stops{display:block;position:absolute;z-index:3;left:14px;bottom:14px;width:min(380px,40%)}
   .chain.is-live .chain-card{
     position:absolute;left:0;right:0;bottom:0;
-    background:rgba(20,25,34,.9);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+    background:rgba(20,25,34,.96);   /* solid on purpose: blur over a WebGL canvas freezes it on some Android GPUs */
     border-color:var(--line-soft);
     opacity:0;transform:translateY(8px);pointer-events:none;
     transition:opacity .35s ease,transform .35s ease;
@@ -95,12 +99,21 @@
   .chain.is-live .chain-card[data-role="final"]{border-color:rgba(79,227,166,.45)}
 }
 @media screen and (max-width:860px),screen and (max-aspect-ratio:1/1){
+  .chain.is-live .chain-stage{background-image:var(--poster-tall);background-position:center top}
   .chain.is-live .chain-stops{width:auto;right:14px;left:14px}
   .chain.is-live .chain-ticks{width:auto;right:14px}
   .chain.is-live .chain-card{padding:16px}
 }
 @media screen and (max-width:420px){
   .chain-tick{font-size:9px;letter-spacing:.06em}
+}
+
+/* ---------- Debug overlay (?chaindebug) ---------- */
+.chain-debug{
+  position:absolute;z-index:4;right:14px;top:74px;max-width:calc(100% - 28px);
+  white-space:pre-wrap;text-align:right;pointer-events:none;
+  font-family:var(--mono);font-size:10px;line-height:1.4;color:var(--amber);
+  background:rgba(11,14,20,.85);border:1px solid var(--line-soft);border-radius:4px;padding:4px 7px;
 }
 
 /* ---------- Print: always the card grid ---------- */

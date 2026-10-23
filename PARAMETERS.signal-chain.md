@@ -14,7 +14,9 @@ Append this section to your existing `PARAMETERS.md`.
 | `FOV` | `assets/js/signal-chain.js` `CONFIG` | `30` | Camera field of view in degrees. |
 | `SHIFT_WIDE` / `SHIFT_TALL` | `assets/js/signal-chain.js` `CONFIG` | `0.15` / `0.17` | How far the rack is pushed away from the card (right on wide screens, up on tall ones). |
 | `MAX_DPR` | `assets/js/signal-chain.js` `CONFIG` | `1.75` | Pixel-density cap. Lower = cooler and faster on phones. |
-| `PRELOAD_MARGIN` | `assets/js/signal-chain.js` `CONFIG` | `900px 0px` | How early the 3D libraries start loading before the section is on screen. |
+| `IDLE_TIMEOUT` | `assets/js/signal-chain.js` `CONFIG` | `2500` | The 3D loads once the page has loaded and the browser is idle. This is the longest it waits for idle (ms) before loading anyway. |
+| `PRELOAD_MARGIN` | `assets/js/signal-chain.js` `CONFIG` | `1500px 0px` | If a visitor gets this close to the section before the idle load starts (e.g. via the nav link), loading starts at once. |
+| `CHAIN_POSTERS` | `assets/css/signal-chain.css` (`--poster-wide`, `--poster-tall`) | `assets/img/signal-chain-poster-*.webp` | Still of the opening shot shown in the stage until the 3D's first frame. Re-capture if you change the rack or `CAMERA_KEYS[0]`. |
 | `ZONE_NAMES` | `assets/js/signal-chain.js` `CONFIG` | Ingest, QC, Playout, Delivery | Stage names shown in the stage readout. |
 | `LED` | `assets/js/signal-chain.js` `CONFIG` | idle / amber / green | Zone light colours for waiting, active and completed stages. |
 | `LAYOUT` | `assets/js/signal-chain.js` `buildRack()` | 20 devices | Rack contents top to bottom: `[zone, rack units, kind]`. Kinds: ird, encoder, fiber, server, ccmon, mv, scope, router, recorder, switch, blank. |
@@ -24,5 +26,9 @@ Append this section to your existing `PARAMETERS.md`.
 
 - `three.min.js` — three.js r128 (MIT, see `three.LICENSE.txt`)
 - `gsap.min.js`, `ScrollTrigger.min.js` — GSAP 3.12.5 (GreenSock standard licence, free for this use; licence header kept in each file)
+
+### Debug mode
+
+Add `?chaindebug` to the page URL to show a frame counter, scroll position, stop, scroll driver and GPU name inside the stage. Add `?chaindebug=raw` to also bypass GSAP so the camera follows the scrollbar directly. If the frame counter climbs while the rack image stays still, the phone is drawing frames but not displaying them.
 
 The section falls back to a plain card grid when WebGL is unavailable, reduced motion is on, a library fails to load, or the page is printed.

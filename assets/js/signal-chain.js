@@ -7,8 +7,13 @@
 
    - Progressive enhancement: without WebGL, with reduced motion, or if a
      library fails to load, the section stays a plain card grid.
-   - Libraries (self-hosted in assets/vendor) load only when the section
-     comes near the screen, so the rest of the page is never delayed.
+   - Libraries (self-hosted in assets/vendor) load after the page has
+     finished loading and the browser is idle, so the hero is never delayed
+     and the 3D is ready before the visitor reaches the section.
+   - A still poster of the opening shot fills the stage until the 3D's
+     first frame is drawn.
+   - Debug: add ?chaindebug to the URL for a frame counter overlay, or
+     ?chaindebug=raw to also bypass GSAP smoothing.
    - Renders on demand: the GPU works only while the camera moves.
    ========================================================= */
 (function () {
@@ -18,7 +23,8 @@
   var CONFIG = {
     VENDOR_THREE: "assets/vendor/three.min.js",
     VENDOR_GSAP: ["assets/vendor/gsap.min.js", "assets/vendor/ScrollTrigger.min.js"],
-    PRELOAD_MARGIN: "900px 0px",     // start loading this far before the section is on screen
+    PRELOAD_MARGIN: "1500px 0px",    // load at once if the visitor gets this close before the idle load starts
+    IDLE_TIMEOUT: 2500,              // ms after page load to start loading even if the browser never goes idle
     MAX_DPR: 1.75,                   // pixel-density cap for the renderer
     SCRUB_SMOOTHING: 0.5,            // seconds of lag between scroll and camera (0 = locked)
     FOV: 30,                         // camera field of view, degrees
@@ -105,6 +111,22 @@
     return best;
   }
 
+  /* ---------- Debug overlay (?chaindebug) ---------- */
+  var dbgMatch = location.search.match(/[?&]chaindebug(?:=([^&]*))?(?:&|$)/);
+  var dbgParam = dbgMatch ? (dbgMatch[1] || "on") : null;
+  var dbg = null;
+  if (dbgParam) {
+    dbg = { el: document.createElement("div"), renders: 0, gpu: "-", mode: "raw" };
+    dbg.el.className = "chain-debug";
+    dbg.el.setAttribute("aria-hidden", "true");
+    stage.appendChild(dbg.el);
+  }
+  function showDebug() {
+    if (!dbg) return;
+    dbg.el.textContent = "renders " + dbg.renders + " | p " + state.p.toFixed(3) + " | stop " + currentStop +
+      " | " + dbg.mode + " | dpr " + Math.min(window.devicePixelRatio || 1, CONFIG.MAX_DPR).toFixed(2) + "\n" + dbg.gpu;
+  }
+
   /* ---------- UI state (cards, ticks, HUD) ---------- */
   var state = { p: 0 };
   var currentStop = -1;
@@ -130,6 +152,7 @@
   function update() {
     applyStop(stopAt(state.p));
     if (three) three.requestRender();
+    showDebug();
   }
 
   // Raw scroll drives the UI until (or unless) GSAP takes over.
@@ -171,7 +194,10 @@
       document.head.appendChild(s);
     });
   }
+  var booted = false;
   function boot() {
+    if (booted) return;
+    booted = true;
     statusEl.textContent = "Loading 3D view";
     loadScript(CONFIG.VENDOR_THREE)
       .then(function () {
@@ -179,16 +205,22 @@
         return CONFIG.VENDOR_GSAP.reduce(function (pr, src) { return pr.then(function () { return loadScript(src); }); }, Promise.resolve())
           .catch(function () { return null; });
       })
-      .then(function () { return document.fonts && document.fonts.ready ? document.fonts.ready : null; })
       .then(start3D)
       .catch(function (e) { fallBack(e && e.message); });
   }
+  // Load when the page is done and the browser is idle; earlier if the visitor jumps close first.
+  function bootWhenIdle() {
+    if (window.requestIdleCallback) requestIdleCallback(boot, { timeout: CONFIG.IDLE_TIMEOUT });
+    else setTimeout(boot, 300);
+  }
+  if (document.readyState === "complete") bootWhenIdle();
+  else addEventListener("load", bootWhenIdle, { once: true });
   if ("IntersectionObserver" in window) {
     var io = new IntersectionObserver(function (entries) {
       if (entries.some(function (e) { return e.isIntersecting; })) { io.disconnect(); boot(); }
     }, { rootMargin: CONFIG.PRELOAD_MARGIN });
     io.observe(section);
-  } else { boot(); }
+  }
 
   /* =========================================================
      3D view
@@ -231,6 +263,7 @@
       if (!alive) return;
       place(camAt(state.p));
       renderer.render(scene, cam);
+      if (dbg) { dbg.renders++; showDebug(); }
     }
     function requestRender() { if (!queued && alive) { queued = true; requestAnimationFrame(render); } }
     function resize() {
@@ -248,7 +281,7 @@
 
     // GSAP takes over progress with smoothing, if it loaded.
     var tween = null;
-    if (window.gsap && window.ScrollTrigger) {
+    if (window.gsap && window.ScrollTrigger && dbgParam !== "raw") {
       gsap.registerPlugin(ScrollTrigger);
       removeEventListener("scroll", onRawScroll);
       state.p = rawProgress();
@@ -264,9 +297,20 @@
         onUpdate: update
       });
       ScrollTrigger.refresh();
+      if (dbg) dbg.mode = "gsap";
+    }
+    if (dbg) {
+      try {
+        var gl = renderer.getContext(), ri = gl.getExtension("WEBGL_debug_renderer_info");
+        dbg.gpu = ri ? gl.getParameter(ri.UNMASKED_RENDERER_WEBGL) : gl.getParameter(gl.RENDERER);
+      } catch (e) { dbg.gpu = "gpu unknown"; }
     }
 
-    resize(); update(); render();
+    // Compile all shaders now so the first scroll doesn't stall, then draw and reveal.
+    resize(); place(camAt(state.p));
+    try { renderer.compile(scene, cam); } catch (e) {}
+    update(); render();
+    requestAnimationFrame(function () { stage.classList.add("is-ready"); });
     statusEl.textContent = ""; statusEl.hidden = true;
 
     canvas.addEventListener("webglcontextlost", function (e) {
